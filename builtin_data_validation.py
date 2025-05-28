@@ -1,10 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, AnyUrl
 from typing import List, Dict, Optional
 
-# Convert a normal class into a Pydantic Model by inheriting from BaseModel
 class Student(BaseModel):
     name: str
     age: int
+    email: EmailStr
+    linkedin: AnyUrl
     weight: float
     allergies: Optional[List[str]] = None
     contract: Dict[str, str]
@@ -20,7 +21,7 @@ def add_student_data(student):
     print("Information inserted into the Database!")
 
 student = {
-    "name": "Alice", 
+    "name": "Alice",
     "age": 30, 
     "weight": 65.5, 
     "allergies": ["peanuts", "shellfish"], 
